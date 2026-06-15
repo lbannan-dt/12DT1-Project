@@ -1,0 +1,45 @@
+[gd_scene format=3 uid="uid://ddosxxinslr7j"]
+
+[ext_resource type="PackedScene" uid="uid://cgcguef4f87yk" path="res://Levels/Player.tscn" id="1_bexhn"]
+
+[sub_resource type="TileSet" id="TileSet_bexhn"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_acdnu"]
+size = Vector2(40, 40)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_q1cbv"]
+size = Vector2(348, 380)
+
+[node name="Node2D" type="Node2D" unique_id=2143456190]
+
+[node name="TileMapLayer" type="TileMapLayer" parent="." unique_id=2092600711]
+tile_set = SubResource("TileSet_bexhn")
+
+[node name="CharacterBody2D" parent="." unique_id=2111469914 instance=ExtResource("1_bexhn")]
+
+[node name="Area2D" type="Area2D" parent="." unique_id=1399736376]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=2133010672]
+position = Vector2(468, 329)
+shape = SubResource("RectangleShape2D_acdnu")
+
+[node name="ColorRect" type="ColorRect" parent="Area2D" unique_id=1017546500]
+offset_left = 448.0
+offset_top = 309.0
+offset_right = 488.0
+offset_bottom = 349.0
+color = Color(1, 0, 0, 1)
+
+[node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=240701911]
+position = Vector2(123, 507)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" unique_id=1409702468]
+shape = SubResource("RectangleShape2D_q1cbv")
+
+[node name="ColorRect" type="ColorRect" parent="StaticBody2D/CollisionShape2D" unique_id=2141647003]
+offset_left = -174.0
+offset_top = -190.0
+offset_right = 174.0
+offset_bottom = 190.0
+
+[connection signal="body_entered" from="Area2D" to="CharacterBody2D" method="_on_area_2d_body_entered"]
