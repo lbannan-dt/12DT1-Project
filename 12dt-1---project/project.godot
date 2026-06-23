@@ -11,7 +11,16 @@ config_version=5
 [application]
 
 config/name="12DT1 - Project"
+run/main_scene="uid://ddosxxinslr7j"
 config/features=PackedStringArray("4.6", "Forward Plus")
+
+[autoload]
+
+Manager="*uid://pjcxl4ou3frx"
+
+[global_group]
+
+Player=""
 
 [input]
 

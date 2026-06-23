@@ -3,54 +3,20 @@
 [ext_resource type="PackedScene" uid="uid://cgcguef4f87yk" path="res://Levels/Player.tscn" id="1_bexhn"]
 [ext_resource type="PackedScene" uid="uid://4ieyr68aqa12" path="res://Levels/Enemy.tscn" id="2_q1cbv"]
 
-[sub_resource type="GDScript" id="GDScript_acdnu"]
-script/source = "extends Node2D
-
-@export var player: CharacterBody2D
-@export var enemy: CharacterBody2D
-var character: CharacterBody2D
-
-var game_over: bool = false
-
-func next_turn():
-	if game_over:
-		return
-	
-	if character != null:
-		character.end_turn()
-	
-	if character == enemy or character == null:
-		character = player
-	else:
-		character = enemy
-	
-	character.begin_turn()
-	
-	if character.is_player:
-		pass
-	else:
-		await get_tree().create_timer(1.0).timeout
-		#enemy attack
-		await get_tree().create_timer(0.5).timeout
-		next_turn()
-
-func player_action(action):
-	if player != character:
-		return
-"
-
 [sub_resource type="TileSet" id="TileSet_bexhn"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_q1cbv"]
 size = Vector2(348, 380)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_24c1m"]
+size = Vector2(38, 34)
+
 [node name="Node2D" type="Node2D" unique_id=2143456190]
-script = SubResource("GDScript_acdnu")
 
 [node name="TileMapLayer" type="TileMapLayer" parent="." unique_id=2092600711]
 tile_set = SubResource("TileSet_bexhn")
 
-[node name="CharacterBody2D" parent="." unique_id=2111469914 instance=ExtResource("1_bexhn")]
+[node name="CharacterBody2D" parent="." unique_id=2111469914 groups=["Player"] instance=ExtResource("1_bexhn")]
 
 [node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=240701911]
 position = Vector2(123, 507)
@@ -64,5 +30,14 @@ offset_bottom = 190.0
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" unique_id=1409702468]
 shape = SubResource("RectangleShape2D_q1cbv")
 
-[node name="Area2D" parent="." unique_id=2014635181 instance=ExtResource("2_q1cbv")]
-position = Vector2(326, 281)
+[node name="Area2D" parent="." unique_id=987057676 instance=ExtResource("2_q1cbv")]
+position = Vector2(357, 291)
+
+[node name="Area2D2" type="Area2D" parent="." unique_id=1054438083]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D2" unique_id=245078050]
+position = Vector2(401, 446)
+shape = SubResource("RectangleShape2D_24c1m")
+
+[connection signal="body_entered" from="Area2D" to="CharacterBody2D" method="_on_area_2d_body_entered"]
+[connection signal="body_entered" from="Area2D2" to="CharacterBody2D" method="_on_area_2d_2_body_entered"]

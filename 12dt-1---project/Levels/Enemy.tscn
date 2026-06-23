@@ -1,19 +1,17 @@
 [gd_scene format=3 uid="uid://4ieyr68aqa12"]
 
-[ext_resource type="Script" uid="uid://dsmn73yonpvm6" path="res://Scripts/enemy.gd" id="1_jh61n"]
+[ext_resource type="Script" uid="uid://dyaldujgxvh8f" path="res://Scripts/enemy.gd" id="1_jh61n"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_gqquq"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_fjmwc"]
 
-[node name="Area2D" type="Area2D" unique_id=2014635181]
+[node name="Area2D" type="Area2D" unique_id=987057676]
 script = ExtResource("1_jh61n")
 
-[node name="ColorRect" type="ColorRect" parent="." unique_id=194012557]
+[node name="ColorRect" type="ColorRect" parent="." unique_id=863778263]
 offset_left = -20.0
 offset_top = -20.0
 offset_right = 20.0
 offset_bottom = 20.0
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=2049887487]
-shape = SubResource("RectangleShape2D_gqquq")
-
-[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=410415864]
+shape = SubResource("RectangleShape2D_fjmwc")

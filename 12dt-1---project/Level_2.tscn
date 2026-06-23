@@ -1,0 +1,12 @@
+[gd_scene format=3 uid="uid://b1nse02ggxqad"]
+
+[ext_resource type="PackedScene" uid="uid://4ieyr68aqa12" path="res://Levels/Enemy.tscn" id="1_ngfil"]
+[ext_resource type="PackedScene" uid="uid://cgcguef4f87yk" path="res://Levels/Player.tscn" id="2_q4d37"]
+
+[node name="Node2D" type="Node2D" unique_id=1202896034]
+
+[node name="Area2D" parent="." unique_id=987057676 instance=ExtResource("1_ngfil")]
+position = Vector2(272, 245)
+
+[node name="CharacterBody2D" parent="." unique_id=2111469914 instance=ExtResource("2_q4d37")]
+position = Vector2(41, 62)

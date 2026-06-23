@@ -34,10 +34,11 @@ layout_mode = 2
 [node name="Attack" type="Button" parent="VBoxContainer/HBoxContainer" unique_id=641134573]
 layout_mode = 2
 
-[node name="Action" type="Button" parent="VBoxContainer/HBoxContainer" unique_id=1426216427]
+[node name="Items" type="Button" parent="VBoxContainer/HBoxContainer" unique_id=1426216427]
 layout_mode = 2
 
 [node name="Text" type="Label" parent="VBoxContainer" unique_id=503033949]
 layout_mode = 2
 
 [connection signal="pressed" from="VBoxContainer/HBoxContainer/Attack" to="." method="_on_attack_pressed"]
+[connection signal="pressed" from="VBoxContainer/HBoxContainer/Items" to="." method="_on_items_pressed"]
