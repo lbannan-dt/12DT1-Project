@@ -13,32 +13,54 @@ script = ExtResource("1_ubxrj")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=935763735]
 layout_mode = 0
-offset_right = 1152.0
-offset_bottom = 648.0
+offset_left = 35.0
+offset_top = 29.0
+offset_right = 1111.0
+offset_bottom = 611.0
 
 [node name="Enemy Name" type="Label" parent="VBoxContainer" unique_id=2095979378]
 layout_mode = 2
 
 [node name="Enemy Health" type="ProgressBar" parent="VBoxContainer" unique_id=1652356600]
+custom_minimum_size = Vector2(500, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+
+[node name="Text" type="Label" parent="VBoxContainer" unique_id=503033949]
 layout_mode = 2
 
 [node name="Player" type="Label" parent="VBoxContainer" unique_id=1692304877]
 layout_mode = 2
+size_flags_vertical = 10
 
 [node name="Player Health" type="ProgressBar" parent="VBoxContainer" unique_id=1063668298]
+custom_minimum_size = Vector2(350, 0)
 layout_mode = 2
+size_flags_horizontal = 4
 
 [node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer" unique_id=1709993878]
 layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 6
+size_flags_stretch_ratio = 0.1
 
 [node name="Attack" type="Button" parent="VBoxContainer/HBoxContainer" unique_id=641134573]
+custom_minimum_size = Vector2(50, 25)
 layout_mode = 2
+size_flags_vertical = 4
+size_flags_stretch_ratio = 2.63
+text = "Attack"
 
-[node name="Items" type="Button" parent="VBoxContainer/HBoxContainer" unique_id=1426216427]
+[node name="Items" type="Button" parent="VBoxContainer/HBoxContainer" unique_id=551003975]
 layout_mode = 2
+text = "Item"
 
-[node name="Text" type="Label" parent="VBoxContainer" unique_id=503033949]
-layout_mode = 2
+[node name="ColorRect" type="ColorRect" parent="." unique_id=1837393233]
+layout_mode = 0
+offset_left = 486.0
+offset_top = 256.0
+offset_right = 670.0
+offset_bottom = 423.0
 
 [connection signal="pressed" from="VBoxContainer/HBoxContainer/Attack" to="." method="_on_attack_pressed"]
 [connection signal="pressed" from="VBoxContainer/HBoxContainer/Items" to="." method="_on_items_pressed"]

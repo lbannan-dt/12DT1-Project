@@ -18,3 +18,4 @@ offset_bottom = 16.0
 shape = SubResource("RectangleShape2D_sh265")
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=543286369]
+zoom = Vector2(2, 2)

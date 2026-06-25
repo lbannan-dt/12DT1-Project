@@ -20,5 +20,10 @@ func _on_area_2d_body_entered(body: Node2D) -> void:
 
 func _on_area_2d_2_body_entered(body: Node2D) -> void:
 	if body.is_in_group("Player"):
-		get_tree().change_scene_to_file("res://Level_2.tscn")
+		get_tree().change_scene_to_file("res://Levels/Level_2.tscn")
 		Manager.level_number += 1
+
+
+func _on_body_entered(body: Node2D) -> void:
+	if body.is_in_group("Player"):
+		get_tree().change_scene_to_file("res://Levels/Battle.tscn")

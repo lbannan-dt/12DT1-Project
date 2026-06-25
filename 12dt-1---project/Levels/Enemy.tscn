@@ -1,17 +1,19 @@
 [gd_scene format=3 uid="uid://4ieyr68aqa12"]
 
 [ext_resource type="Script" uid="uid://dyaldujgxvh8f" path="res://Scripts/enemy.gd" id="1_jh61n"]
+[ext_resource type="TileSet" uid="uid://0dei6iym05ty" path="res://Assets/sprite_map.tres" id="2_0ic64"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_fjmwc"]
+size = Vector2(20, 41)
 
 [node name="Area2D" type="Area2D" unique_id=987057676]
 script = ExtResource("1_jh61n")
 
-[node name="ColorRect" type="ColorRect" parent="." unique_id=863778263]
-offset_left = -20.0
-offset_top = -20.0
-offset_right = 20.0
-offset_bottom = 20.0
-
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=410415864]
+position = Vector2(-1, 7.5)
 shape = SubResource("RectangleShape2D_fjmwc")
+
+[node name="TileMapLayer" type="TileMapLayer" parent="." unique_id=195500849]
+position = Vector2(-1, -1)
+tile_map_data = PackedByteArray(0, 0, 255, 255, 255, 255, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 255, 255, 0, 0, 1, 0, 0, 0, 0, 0, 255, 255, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 1, 0, 0, 0)
+tile_set = ExtResource("2_0ic64")

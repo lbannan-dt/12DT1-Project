@@ -1,0 +1,14 @@
+[gd_scene format=3 uid="uid://b1nse02ggxqad"]
+
+[ext_resource type="PackedScene" uid="uid://cgcguef4f87yk" path="res://Levels/Player.tscn" id="1_e2lwy"]
+[ext_resource type="PackedScene" uid="uid://fyy0qvy44gbo" path="res://Levels/AlienDX.tscn" id="2_hfjsb"]
+
+[node name="Node2D" type="Node2D" unique_id=1202896034]
+
+[node name="CharacterBody2D" parent="." unique_id=2111469914 groups=["Player"] instance=ExtResource("1_e2lwy")]
+position = Vector2(41, 62)
+
+[node name="Area2D" parent="." unique_id=1025982415 instance=ExtResource("2_hfjsb")]
+position = Vector2(129, 113)
+
+[connection signal="body_entered" from="Area2D" to="CharacterBody2D" method="_on_body_entered"]

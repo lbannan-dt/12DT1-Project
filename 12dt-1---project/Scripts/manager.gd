@@ -6,11 +6,9 @@ var atk = [1,2]
 var def
 var enemy_order: int = 1
 var level_number: int = 1
+var inventory: int = 3
 
-var inventory = {
-	"Bread": 2
-}
-
-var item_info = {
-	"Bread": {"hp": 2, "info": "Heal 2 HP"}
+var enemy_info = {
+	"Alien Robo": {"hp": 15, "atk": [1,2]},
+	"Alien Robo DX": {"hp": 30, "atk": [3,6]}
 }
