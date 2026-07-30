@@ -1,21 +1,25 @@
 [gd_scene format=3 uid="uid://cgcguef4f87yk"]
 
 [ext_resource type="Script" uid="uid://3hd4sxvu2pch" path="res://Scripts/Player.gd" id="1_xhfnw"]
+[ext_resource type="TileSet" uid="uid://bqjulmq6vo04i" path="res://Assets/tile_map.tres" id="2_bw61f"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_sh265"]
-size = Vector2(32, 32)
+size = Vector2(18, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_bw61f"]
 
 [node name="CharacterBody2D" type="CharacterBody2D" unique_id=2111469914]
 script = ExtResource("1_xhfnw")
-
-[node name="ColorRect" type="ColorRect" parent="." unique_id=1059263898]
-offset_left = -16.0
-offset_top = -16.0
-offset_right = 16.0
-offset_bottom = 16.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=13545778]
 shape = SubResource("RectangleShape2D_sh265")
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=543286369]
-zoom = Vector2(2, 2)
+zoom = Vector2(3, 3)
+
+[node name="TileMapLayer" type="TileMapLayer" parent="." unique_id=1615352955]
+tile_map_data = PackedByteArray(0, 0, 0, 0, 0, 0, 1, 0, 1, 0, 11, 0, 0, 0, 0, 0, 255, 255, 1, 0, 1, 0, 10, 0, 0, 0, 255, 255, 255, 255, 1, 0, 0, 0, 10, 0, 0, 0, 255, 255, 0, 0, 1, 0, 0, 0, 11, 0, 0, 0)
+tile_set = ExtResource("2_bw61f")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=797572101]
+sprite_frames = SubResource("SpriteFrames_bw61f")

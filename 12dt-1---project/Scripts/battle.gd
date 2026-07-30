@@ -14,6 +14,25 @@ var remaining_items = Manager.inventory
 var heal_number: int
 var healed: bool = false
 
+func _enemy_attack():
+	var enemy_damage = randi_range(1*Manager.enemy_order,2*Manager.enemy_order)
+	text.text = "Enemy attacks you"
+	await get_tree().create_timer(1.5).timeout
+	player_hp -= enemy_damage
+	player_bar.value = player_hp
+	text.text = "Enemy dealt %d damage!" %enemy_damage
+	await get_tree().create_timer(1.5).timeout
+	text.text = "Your turn"
+	
+	
+	if player_hp <= 0:
+		item_button.disabled = true
+		attack_button.disabled = true
+		text.text = "You were defeated..."
+		await get_tree().create_timer(1.5).timeout
+		_win_die()
+		return
+
 func _ready() -> void:
 	enemy_bar.max_value = enemy_max_hp
 	enemy_bar.value = enemy_max_hp
@@ -28,29 +47,16 @@ func _attack():
 	enemy_hp -= damage
 	enemy_bar.value = enemy_hp
 	text.text = "You attacked enemy and dealt %d damage!" %damage
-	await get_tree().create_timer(1.0).timeout
+	await get_tree().create_timer(1.5).timeout
 	
 	if enemy_hp <= 0:
 		text.text = "You defeated enemy!"
-		await get_tree().create_timer(1.0).timeout
+		await get_tree().create_timer(1.5).timeout
 		_win_die()
 		Manager.enemy_order += 1
 		return
 		
-	var enemy_damage = randi_range(1*Manager.enemy_order,2*Manager.enemy_order)
-	text.text = "Enemy attacks you"
-	await get_tree().create_timer(1.0).timeout
-	player_hp -= enemy_damage
-	player_bar.value = player_hp
-	text.text = "Enemy dealt %d damage!" %enemy_damage
-	await get_tree().create_timer(1.0).timeout
-	text.text = "Your turn"
-	
-	if player_hp <= 0:
-		text.text = "You were defeated..."
-		await get_tree().create_timer(1.0).timeout
-		_win_die()
-		return
+	_enemy_attack()
 		
 	attack_button.disabled = false
 	item_button.disabled = false
@@ -63,9 +69,9 @@ func _use_item():
 		player_bar.value = player_hp
 		remaining_items -= 1
 		text.text = "You healed %dhp" %heal
-		await get_tree().create_timer(1.0).timeout
+		await get_tree().create_timer(1.5).timeout
 		text.text = "You have %d uses left" %remaining_items
-		await get_tree().create_timer(1.0).timeout
+		await get_tree().create_timer(1.5).timeout
 		healed = true
 	if player_hp > 6 and not healed:
 		heal_number = 10 - player_hp
@@ -73,25 +79,11 @@ func _use_item():
 		player_bar.value = player_hp
 		remaining_items -= 1
 		text.text = "You healed %dhp" %heal_number
-		await get_tree().create_timer(1.0).timeout
+		await get_tree().create_timer(1.5).timeout
 		text.text = "You have %d uses left" %remaining_items
-		await get_tree().create_timer(1.0).timeout
+		await get_tree().create_timer(1.5).timeout
 	
-	var enemy_damage = randi_range(1*Manager.enemy_order,2*Manager.enemy_order)
-	text.text = "Enemy attacks you"
-	await get_tree().create_timer(1.0).timeout
-	player_hp -= enemy_damage
-	player_bar.value = player_hp
-	text.text = "Enemy dealt %d damage!" %enemy_damage
-	await get_tree().create_timer(1.0).timeout
-	text.text = "Your turn"
-	
-	
-	if player_hp <= 0:
-		text.text = "You were defeated..."
-		await get_tree().create_timer(1.0).timeout
-		_win_die()
-		return
+	_enemy_attack()
 	
 	item_button.disabled = false
 	attack_button.disabled = false
