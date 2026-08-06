@@ -15,6 +15,8 @@ var heal_number: int
 var healed: bool = false
 
 func _enemy_attack():
+	attack_button.disabled = true
+	item_button.disabled = true
 	var enemy_damage = randi_range(1*Manager.enemy_order,2*Manager.enemy_order)
 	text.text = "Enemy attacks you"
 	await get_tree().create_timer(1.5).timeout
@@ -23,7 +25,9 @@ func _enemy_attack():
 	text.text = "Enemy dealt %d damage!" %enemy_damage
 	await get_tree().create_timer(1.5).timeout
 	text.text = "Your turn"
-	
+	await get_tree().create_timer(0.5).timeout
+	attack_button.disabled = false
+	item_button.disabled = false
 	
 	if player_hp <= 0:
 		item_button.disabled = true
@@ -57,12 +61,10 @@ func _attack():
 		return
 		
 	_enemy_attack()
-		
-	attack_button.disabled = false
-	item_button.disabled = false
 
 func _use_item():
 	item_button.disabled = true
+	attack_button.disabled = true
 	var heal: int = 4
 	if player_hp <= 6:
 		player_hp += heal
@@ -96,8 +98,9 @@ func _on_attack_pressed() -> void:
 func _win_die():
 	if Manager.level_number == 1:
 		get_tree().change_scene_to_file("res://Levels/Level.tscn")
+		global_position = Vector2(-100, -300)
 	elif Manager.level_number == 2:
-		get_tree().change_scene_to_file("res://Levels/Level_2.tscn")
+		get_tree().change_scene_to_file("res://Levels/Past_Cave.tscn")
 
 
 func _on_items_pressed() -> void:

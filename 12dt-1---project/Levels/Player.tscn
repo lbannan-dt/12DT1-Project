@@ -8,6 +8,8 @@ size = Vector2(18, 32)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_bw61f"]
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_bw61f"]
+
 [node name="CharacterBody2D" type="CharacterBody2D" unique_id=2111469914]
 script = ExtResource("1_xhfnw")
 
@@ -23,3 +25,10 @@ tile_set = ExtResource("2_bw61f")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=797572101]
 sprite_frames = SubResource("SpriteFrames_bw61f")
+
+[node name="Area2D" type="Area2D" parent="." unique_id=714054618 groups=["Player"]]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=1671809028 groups=["Player"]]
+shape = SubResource("RectangleShape2D_bw61f")
+
+[connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]

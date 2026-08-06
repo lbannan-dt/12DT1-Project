@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://con0rhcugpbdw"]
 
 [ext_resource type="Script" uid="uid://pq4snjn5cbf4" path="res://Scripts/battle.gd" id="1_ubxrj"]
+[ext_resource type="TileSet" uid="uid://0dei6iym05ty" path="res://Assets/sprite_map.tres" id="2_nkjoy"]
 
 [node name="Control" type="Control" unique_id=1769685152]
 layout_mode = 3
@@ -55,12 +56,9 @@ text = "Attack"
 layout_mode = 2
 text = "Item"
 
-[node name="ColorRect" type="ColorRect" parent="." unique_id=1837393233]
-layout_mode = 0
-offset_left = 486.0
-offset_top = 256.0
-offset_right = 670.0
-offset_bottom = 423.0
+[node name="TileMapLayer" type="TileMapLayer" parent="." unique_id=2118045762]
+tile_map_data = PackedByteArray(0, 0, 8, 0, 4, 0, 0, 0, 0, 0, 0, 0, 0, 0, 9, 0, 4, 0, 0, 0, 1, 0, 0, 0, 0, 0, 8, 0, 5, 0, 0, 0, 0, 0, 1, 0, 0, 0, 9, 0, 5, 0, 0, 0, 1, 0, 1, 0, 0, 0)
+tile_set = ExtResource("2_nkjoy")
 
 [connection signal="pressed" from="VBoxContainer/HBoxContainer/Attack" to="." method="_on_attack_pressed"]
 [connection signal="pressed" from="VBoxContainer/HBoxContainer/Items" to="." method="_on_items_pressed"]
