@@ -2,7 +2,8 @@ extends Node
 
 var max_hp: int = 10
 var hp: int = 10
-var atk = [1,2]
+var min_atk = 2
+var max_atk = 3
 var def
 var enemy_order: int = 1
 var level_number: int = 1
