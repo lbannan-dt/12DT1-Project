@@ -1,7 +1,7 @@
 [gd_scene format=4 uid="uid://pw81tgt2p182"]
 
 [ext_resource type="TileSet" uid="uid://bqjulmq6vo04i" path="res://Assets/tile_map.tres" id="1_k0xuq"]
-[ext_resource type="PackedScene" uid="uid://cgcguef4f87yk" path="res://Levels/Player.tscn" id="2_krqg2"]
+[ext_resource type="PackedScene" uid="uid://cgcguef4f87yk" path="res://Levels/Other Levels/Player.tscn" id="2_krqg2"]
 
 [node name="Node2D" type="Node2D" unique_id=1006347435]
 

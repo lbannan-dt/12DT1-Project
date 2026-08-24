@@ -18,6 +18,13 @@ config/features=PackedStringArray("4.6", "Forward Plus")
 
 Manager="*uid://pjcxl4ou3frx"
 
+[display]
+
+window/size/viewport_width=339
+window/size/viewport_height=224
+window/stretch/mode="viewport"
+window/stretch/scale_mode="integer"
+
 [global_group]
 
 Player=""
