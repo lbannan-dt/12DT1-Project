@@ -4,6 +4,7 @@
 [ext_resource type="TileSet" uid="uid://bqjulmq6vo04i" path="res://Assets/tile_map.tres" id="2_o8bcd"]
 [ext_resource type="PackedScene" uid="uid://4ieyr68aqa12" path="res://Levels/Other Levels/Enemy.tscn" id="3_o8bcd"]
 [ext_resource type="PackedScene" uid="uid://fyy0qvy44gbo" path="res://Levels/Other Levels/AlienDX.tscn" id="3_opgfh"]
+[ext_resource type="PackedScene" uid="uid://ccyofko5m1rgh" path="res://Levels/Other Levels/Pteranodon.tscn" id="5_ynqwl"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_o8bcd"]
 bg_color = Color(0, 0, 0, 1)
@@ -115,6 +116,9 @@ position = Vector2(170, 112)
 
 [node name="Alien Robo DX" parent="." unique_id=1025982415 instance=ExtResource("3_opgfh")]
 position = Vector2(-138, 100)
+
+[node name="Pteranodon" parent="." unique_id=549755714 instance=ExtResource("5_ynqwl")]
+position = Vector2(-125, 214)
 
 [connection signal="pressed" from="VBoxContainer/HBoxContainer/Attack" to="." method="_on_attack_pressed"]
 [connection signal="pressed" from="VBoxContainer/HBoxContainer/Items" to="." method="_on_items_pressed"]

@@ -1,7 +1,5 @@
 extends Node
 
-@export var player: CharacterBody2D
-
 # Maximum base HP of player
 var max_hp: int = 10
 # Current HP of player
@@ -20,11 +18,14 @@ var inventory: int = 3
 var just_won: bool = false
 var enemy_1: String = "Alien Robo"
 var enemy_2: String = "Alien Robo DX"
+var enemy_3: String = "Pteranodon"
 var enemy_label: String
 var enemy_stats: Dictionary
 var enemy_max_health: int
 var enemy_atk: Array
 var enemy_pos: int
+var level: int = 1
+var cave: int = 2
 
 var enemy_info = {
 	"Alien Robo": {
@@ -36,9 +37,15 @@ var enemy_info = {
 		"hp": 15,
 		"atk": [2,3],
 		"pos": 2
+	},
+	"Pteranodon": {
+		"hp": 20,
+		"atk": [3,4],
+		"pos": 3
 	}
 }
 
+# Need to make some of this into functions
 func _check_order():
 	if enemy_order == 1:
 		enemy_stats = enemy_info[enemy_1]
@@ -52,3 +59,9 @@ func _check_order():
 		enemy_atk = enemy_stats["atk"]
 		enemy_pos = enemy_stats["pos"]
 		enemy_label = enemy_2
+	if enemy_order == 3:
+		enemy_stats = enemy_info[enemy_3]
+		enemy_max_health = enemy_stats["hp"]
+		enemy_atk = enemy_stats["atk"]
+		enemy_pos = enemy_stats["pos"]
+		enemy_label = enemy_3

@@ -15,10 +15,12 @@ const WAIT = 1.5
 @onready var attack_button = $VBoxContainer/HBoxContainer/Attack
 # Assign variable item_button to 'Items' Button node
 @onready var item_button = $VBoxContainer/HBoxContainer/Items
-
+#Assign variable enemy_1_sprite to Alien Robo sprite
 @onready var enemy_1_sprite = $"Alien Robo"
-
+#Assign variable enemy_2_sprite to Alien Robo DX sprite
 @onready var enemy_2_sprite = $"Alien Robo DX"
+@onready var enemy_3_sprite = $"Pteranodon"
+@onready var background = $ColorRect
 
 # Enemy HP
 var enemy_hp: int
@@ -39,10 +41,16 @@ var player_dead: bool = false
 var centre_pos: Vector2 = Vector2(170, 112)
 
 func _move_sprites():
-	if Manager.enemy_pos == 2:
+	if Manager.enemy_order == 2:
 		enemy_1_sprite.hide()
 		enemy_2_sprite.show()
 		enemy_2_sprite.global_position = centre_pos
+		background.color = Color(0, 0, 0.25, 0.5)
+	elif Manager.enemy_order == 3:
+		enemy_1_sprite.hide()
+		enemy_2_sprite.hide()
+		enemy_3_sprite.global_position = centre_pos
+		background.color = Color(0, 0.5, 0.5, 0.5)
 
 # Start battle
 func _ready() -> void:
@@ -200,8 +208,12 @@ func _on_attack_pressed() -> void:
 
 # End level
 func _win_die():
-	get_tree().change_scene_to_file("res://Levels/Main Levels/Level.tscn")
-	
+	if Manager.level_number == Manager.level:
+		get_tree().change_scene_to_file("res://Levels/Main Levels/Level.tscn")
+	if Manager.level_number == Manager.cave:
+		get_tree().change_scene_to_file("res://Levels/Main Levels/Past_Cave.tscn")
+
+
 # Use item when Items button pressed
 func _on_items_pressed() -> void:
 	# Check if there are remaining items

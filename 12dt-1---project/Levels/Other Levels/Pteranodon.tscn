@@ -1,0 +1,14 @@
+[gd_scene format=4 uid="uid://ccyofko5m1rgh"]
+
+[ext_resource type="TileSet" uid="uid://0dei6iym05ty" path="res://Assets/sprite_map.tres" id="1_7yqhm"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_frh61"]
+
+[node name="Area2D" type="Area2D" unique_id=549755714]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=828594922]
+shape = SubResource("RectangleShape2D_frh61")
+
+[node name="TileMapLayer" type="TileMapLayer" parent="." unique_id=1561518738]
+tile_map_data = PackedByteArray("AAD/////AAAHAAAAAAAAAP//AAAIAAAAAAABAAAAAAAJAAEAAAAAAAAAAAAIAAEAAAD//wAAAAAHAAEAAAD+/wAAAAAGAAEAAAABAP//AAAJAAAAAAA=")
+tile_set = ExtResource("1_7yqhm")

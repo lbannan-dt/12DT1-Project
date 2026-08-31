@@ -1,5 +1,6 @@
 extends CharacterBody2D
 
+
 const SPEED: int = 175
 
 var direction: Vector2 = Vector2(0.0, 0.0)
@@ -12,7 +13,7 @@ func _process(delta: float) -> void:
 	velocity = direction.normalized() * SPEED
 	
 	if Manager.just_won:
-		global_position = Vector2(-100, -300)
+		global_position = Vector2(-100, -200)
 		Manager.just_won = false
 	
 	move_and_slide()
@@ -32,4 +33,14 @@ func _on_area_2d_body_entered(body: Node2D) -> void:
 
 func _on_area_2d_3_body_entered(body: Node2D) -> void:
 	if body.is_in_group("Player"):
-		global_position = Vector2(100, -300)
+		global_position = Vector2(100, -200)
+
+
+func _on_pteranodon_body_entered(body: Node2D) -> void:
+	if body.is_in_group("Player"):
+		get_tree().change_scene_to_file("res://Levels/Other Levels/Battle.tscn")
+
+func _on_area_time_machine_body_entered(body: Node2D) -> void:
+	if body.is_in_group("Player"):
+		get_tree().change_scene_to_file("res://Levels/Main Levels/Cretaceous.tscn")
+		Manager.level_number += 1
