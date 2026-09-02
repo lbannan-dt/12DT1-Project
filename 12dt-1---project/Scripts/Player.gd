@@ -43,4 +43,9 @@ func _on_pteranodon_body_entered(body: Node2D) -> void:
 func _on_area_time_machine_body_entered(body: Node2D) -> void:
 	if body.is_in_group("Player"):
 		get_tree().change_scene_to_file("res://Levels/Main Levels/Cretaceous.tscn")
+# Remove Magic Numbers!
 		Manager.level_number += 1
+		Manager.max_hp += 5
+		Manager.min_atk += 1
+		Manager.max_atk += 1
+		Manager.hp += 5

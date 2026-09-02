@@ -39,8 +39,8 @@ var enemy_info = {
 		"pos": 2
 	},
 	"Pteranodon": {
-		"hp": 20,
-		"atk": [3,4],
+		"hp": 15,
+		"atk": [4,5],
 		"pos": 3
 	}
 }
