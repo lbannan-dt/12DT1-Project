@@ -26,6 +26,8 @@ var enemy_atk: Array
 var enemy_pos: int
 var level: int = 1
 var cave: int = 2
+var cretaceous: int = 3
+var win_location: Vector2
 
 var enemy_info = {
 	"Alien Robo": {
@@ -34,13 +36,13 @@ var enemy_info = {
 		"pos": 1
 	},
 	"Alien Robo DX": {
-		"hp": 15,
+		"hp": 12,
 		"atk": [2,3],
 		"pos": 2
 	},
 	"Pteranodon": {
 		"hp": 15,
-		"atk": [4,5],
+		"atk": [2,4],
 		"pos": 3
 	}
 }
@@ -53,15 +55,18 @@ func _check_order():
 		enemy_atk = enemy_stats["atk"]
 		enemy_pos = enemy_stats["pos"]
 		enemy_label = enemy_1
+		win_location = Vector2(-100, -200)
 	if enemy_order == 2:
 		enemy_stats = enemy_info[enemy_2]
 		enemy_max_health = enemy_stats["hp"]
 		enemy_atk = enemy_stats["atk"]
 		enemy_pos = enemy_stats["pos"]
 		enemy_label = enemy_2
+		win_location = Vector2(150, 50)
 	if enemy_order == 3:
 		enemy_stats = enemy_info[enemy_3]
 		enemy_max_health = enemy_stats["hp"]
 		enemy_atk = enemy_stats["atk"]
 		enemy_pos = enemy_stats["pos"]
 		enemy_label = enemy_3
+		win_location = Vector2(500, 500)

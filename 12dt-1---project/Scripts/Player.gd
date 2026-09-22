@@ -13,7 +13,7 @@ func _process(delta: float) -> void:
 	velocity = direction.normalized() * SPEED
 	
 	if Manager.just_won:
-		global_position = Vector2(-100, -200)
+		global_position = Manager.win_location
 		Manager.just_won = false
 	
 	move_and_slide()

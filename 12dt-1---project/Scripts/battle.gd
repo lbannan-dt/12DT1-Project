@@ -212,6 +212,8 @@ func _win_die():
 		get_tree().change_scene_to_file("res://Levels/Main Levels/Level.tscn")
 	if Manager.level_number == Manager.cave:
 		get_tree().change_scene_to_file("res://Levels/Main Levels/Past_Cave.tscn")
+	if Manager.level_number == Manager.cretaceous:
+		get_tree().change_scene_to_file("res://Levels/Main Levels/Cretaceous.tscn")
 
 
 # Use item when Items button pressed

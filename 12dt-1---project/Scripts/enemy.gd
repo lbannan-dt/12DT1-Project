@@ -1,6 +1,6 @@
 extends Area2D
 
 func _ready():
-	if Manager.enemy_order != Manager.level_number:
+	if Manager.just_won:
 		queue_free()
 		return
