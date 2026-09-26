@@ -4,23 +4,24 @@ const WAIT = 1.5
 
 # Assign variables to nodes
 # Assign variable enemy_name to 'Enemy Name' Label node
-@onready var enemy_name = $"VBoxContainer/Enemy Name"
+@onready var enemy_name: Label = $"VBoxContainer/Enemy Name"
 # Assign variable enemy_bar to 'Enemy Health' ProgressBar node
-@onready var enemy_bar = $"VBoxContainer/Enemy Health"
+@onready var enemy_bar: ProgressBar = $"VBoxContainer/Enemy Health"
 # Assign variable player bar to 'Player Health' ProgressBar node
-@onready var player_bar = $"VBoxContainer/Player Health"
+@onready var player_bar: ProgressBar = $"VBoxContainer/Player Health"
 # Assign variable text to 'Text' Label node
-@onready var text = $Text
+@onready var text: Label = $Text
 # Assign variable attack_button to 'Attack' Button node
-@onready var attack_button = $VBoxContainer/HBoxContainer/Attack
+@onready var attack_button: Button = $VBoxContainer/HBoxContainer/Attack
 # Assign variable item_button to 'Items' Button node
-@onready var item_button = $VBoxContainer/HBoxContainer/Items
+@onready var item_button: Button = $VBoxContainer/HBoxContainer/Items
 #Assign variable enemy_1_sprite to Alien Robo sprite
-@onready var enemy_1_sprite = $"Alien Robo"
+@onready var enemy_1_sprite: Area2D = $"Alien Robo"
 #Assign variable enemy_2_sprite to Alien Robo DX sprite
-@onready var enemy_2_sprite = $"Alien Robo DX"
-@onready var enemy_3_sprite = $"Pteranodon"
-@onready var background = $ColorRect
+@onready var enemy_2_sprite: Area2D = $"Alien Robo DX"
+@onready var enemy_3_sprite: Area2D = $"Pteranodon"
+@onready var enemy_4_sprite: Area2D = $"T-Rex"
+@onready var background: ColorRect = $ColorRect
 
 # Enemy HP
 var enemy_hp: int
@@ -51,6 +52,12 @@ func _move_sprites():
 		enemy_2_sprite.hide()
 		enemy_3_sprite.global_position = centre_pos
 		background.color = Color(0, 0.5, 0.5, 0.5)
+	elif Manager.enemy_order == 4:
+		enemy_1_sprite.hide()
+		enemy_2_sprite.hide()
+		enemy_3_sprite.hide()
+		enemy_4_sprite.global_position = centre_pos
+		background.color = Color(1, 0, 0, 0.5)
 
 # Start battle
 func _ready() -> void:
@@ -214,6 +221,8 @@ func _win_die():
 		get_tree().change_scene_to_file("res://Levels/Main Levels/Past_Cave.tscn")
 	if Manager.level_number == Manager.cretaceous:
 		get_tree().change_scene_to_file("res://Levels/Main Levels/Cretaceous.tscn")
+	if Manager.level_number == Manager.cretaceous_cave:
+		get_tree().change_scene_to_file("res://Levels/Main Levels/Cretaceous_Cave.tscn")
 
 
 # Use item when Items button pressed

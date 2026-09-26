@@ -4,7 +4,8 @@
 [ext_resource type="PackedScene" uid="uid://ccyofko5m1rgh" path="res://Levels/Other Levels/Pteranodon.tscn" id="2_c7cq2"]
 [ext_resource type="PackedScene" uid="uid://cgcguef4f87yk" path="res://Levels/Other Levels/Player.tscn" id="3_lylpt"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_lylpt"]
+[sub_resource type="CircleShape2D" id="CircleShape2D_lylpt"]
+radius = 33.37664
 
 [node name="Node2D" type="Node2D" unique_id=986599260]
 
@@ -39,7 +40,8 @@ position = Vector2(488, 561)
 [node name="Area2D2" type="Area2D" parent="." unique_id=624439403]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D2" unique_id=1803055467]
-position = Vector2(648, 728)
-shape = SubResource("RectangleShape2D_lylpt")
+position = Vector2(654, 718)
+shape = SubResource("CircleShape2D_lylpt")
 
 [connection signal="body_entered" from="Area2D" to="CharacterBody2D" method="_on_pteranodon_body_entered"]
+[connection signal="body_entered" from="Area2D2" to="CharacterBody2D" method="_on_cretaceous_cave_entered"]

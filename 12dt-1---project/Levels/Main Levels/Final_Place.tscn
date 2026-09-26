@@ -1,0 +1,21 @@
+[gd_scene format=4 uid="uid://ub60p76115o"]
+
+[ext_resource type="TileSet" uid="uid://bqjulmq6vo04i" path="res://Assets/tile_map.tres" id="1_68ixm"]
+[ext_resource type="PackedScene" uid="uid://cgcguef4f87yk" path="res://Levels/Other Levels/Player.tscn" id="2_8or4q"]
+[ext_resource type="PackedScene" uid="uid://cch45ynqkkvu3" path="res://Levels/Other Levels/Final_Boss.tscn" id="3_emw68"]
+
+[node name="Node2D" type="Node2D" unique_id=1653453525]
+
+[node name="TileMapLayer" type="TileMapLayer" parent="." unique_id=454459539]
+tile_map_data = PackedByteArray("AAAAAAAAAQAHAAEAAAABAAAAAQAHAAEAAAACAAAAAQAHAAEAAAADAAAAAQAHAAEAAAAEAAAAAQAHAAEAAAAEAAEAAQAHAAEAAAADAAEAAQAHAAEAAAADAAIAAQAHAAEAAAACAAIAAQAHAAEAAAABAAIAAQAHAAEAAAAAAAIAAQAHAAEAAAD//wIAAQAHAAEAAAD+/wIAAQAHAAEAAAD9/wIAAQAHAAEAAAD9/wEAAQAHAAEAAAD8/wEAAQAHAAEAAAD8/wAAAQAHAAEAAAD8////AQAHAAEAAAD9////AQAHAAEAAAD9//7/AQAHAAEAAAD+//7/AQAHAAEAAAD///7/AQAHAAEAAAAAAP7/AQAHAAEAAAABAP7/AQAHAAEAAAACAP7/AQAHAAEAAAACAP//AQAHAAEAAAADAP//AQAHAAEAAAACAAEAAQAHAAEAAAABAAEAAQAHAAEAAAAAAAEAAQAHAAEAAAD//wEAAQAHAAEAAAD+/wEAAQAHAAEAAAD+////AQAHAAEAAAD/////AQAHAAEAAAAAAP//AQAHAAEAAAABAP//AQAHAAEAAAD//wAAAQAHAAEAAAD+/wAAAQAHAAEAAAD9/wAAAQAHAAEAAAA=")
+tile_set = ExtResource("1_68ixm")
+
+[node name="CharacterBody2D" parent="." unique_id=2111469914 instance=ExtResource("2_8or4q")]
+position = Vector2(0, 30)
+
+[node name="TileMapLayer2" type="TileMapLayer" parent="CharacterBody2D" unique_id=1560080498]
+tile_map_data = PackedByteArray("AAD/////AQAZAAAAAAD//wAAAQAZAAEAAAAAAP//AQAaAAAAAAAAAAAAAQAaAAEAAAA=")
+tile_set = ExtResource("1_68ixm")
+
+[node name="Area2D" parent="." unique_id=1799630681 instance=ExtResource("3_emw68")]
+position = Vector2(-1, -45)

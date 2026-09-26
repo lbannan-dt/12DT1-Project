@@ -49,3 +49,30 @@ func _on_area_time_machine_body_entered(body: Node2D) -> void:
 		Manager.min_atk += 1
 		Manager.max_atk += 1
 		Manager.hp += 5
+
+
+func _on_cretaceous_cave_entered(body: Node2D) -> void:
+	if body.is_in_group("Player"):
+		get_tree().change_scene_to_file("res://Levels/Main Levels/Cretaceous_Cave.tscn")
+		Manager.level_number += 1
+
+
+func _on_archaean_entered(body: Node2D) -> void:
+	if body.is_in_group("Player"):
+		get_tree().change_scene_to_file("res://Levels/Main Levels/Archaean.tscn")
+# Remove Magic Numbers!
+		Manager.level_number += 1
+		Manager.max_hp += 5
+		Manager.min_atk += 1
+		Manager.max_atk += 1
+		Manager.hp += 5
+
+
+func _on_trex_body_entered(body: Node2D) -> void:
+	if body.is_in_group("Player"):
+		get_tree().change_scene_to_file("res://Levels/Other Levels/Battle.tscn")
+
+
+func _on_door_entered(body: Node2D) -> void:
+	if body.is_in_group("Player"):
+		get_tree().change_scene_to_file("res://Levels/Main Levels/Final_Place.tscn")

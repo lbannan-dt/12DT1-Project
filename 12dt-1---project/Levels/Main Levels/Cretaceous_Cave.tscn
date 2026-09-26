@@ -2,8 +2,10 @@
 
 [ext_resource type="TileSet" uid="uid://bqjulmq6vo04i" path="res://Assets/tile_map.tres" id="1_b8s01"]
 [ext_resource type="PackedScene" uid="uid://cgcguef4f87yk" path="res://Levels/Other Levels/Player.tscn" id="2_ywxjg"]
+[ext_resource type="PackedScene" uid="uid://dufspj4l58qtm" path="res://Levels/Other Levels/T-rex.tscn" id="3_unjab"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_7kxha"]
+size = Vector2(6, 24)
 
 [node name="Node2D" type="Node2D" unique_id=1829882066]
 
@@ -14,10 +16,18 @@ tile_set = ExtResource("1_b8s01")
 [node name="Area2D2" type="Area2D" parent="." unique_id=689125860]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D2" unique_id=938122064]
-position = Vector2(288, 62)
+position = Vector2(269, 68)
 shape = SubResource("RectangleShape2D_7kxha")
 
 [node name="CharacterBody2D" parent="." unique_id=2111469914 instance=ExtResource("2_ywxjg")]
 position = Vector2(-71, -43)
 
-[connection signal="body_entered" from="Area2D2" to="CharacterBody2D" method="_on_area_time_machine_body_entered"]
+[node name="TileMapLayer2" type="TileMapLayer" parent="." unique_id=2047854364]
+tile_map_data = PackedByteArray("AAAQAAQAAQAYAAQAAAAQAAMAAQAYAAMAAAAQAAIAAQAYAAQAAAAQAAEAAQAWAAMAAAA=")
+tile_set = ExtResource("1_b8s01")
+
+[node name="Area2D" parent="." unique_id=1724803672 instance=ExtResource("3_unjab")]
+position = Vector2(173, 65)
+
+[connection signal="body_entered" from="Area2D2" to="CharacterBody2D" method="_on_archaean_entered"]
+[connection signal="body_entered" from="Area2D" to="CharacterBody2D" method="_on_trex_body_entered"]

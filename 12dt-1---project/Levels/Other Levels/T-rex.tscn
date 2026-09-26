@@ -1,0 +1,16 @@
+[gd_scene format=4 uid="uid://dufspj4l58qtm"]
+
+[ext_resource type="Script" uid="uid://dyaldujgxvh8f" path="res://Scripts/enemy.gd" id="1_qr7lp"]
+[ext_resource type="TileSet" uid="uid://0dei6iym05ty" path="res://Assets/sprite_map.tres" id="1_yuctl"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ku32i"]
+
+[node name="Area2D" type="Area2D" unique_id=1724803672]
+script = ExtResource("1_qr7lp")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1441140538]
+shape = SubResource("RectangleShape2D_ku32i")
+
+[node name="TileMapLayer" type="TileMapLayer" parent="." unique_id=1421188542]
+tile_map_data = PackedByteArray("AAD+////AAAMAAAAAAD+/wAAAAAMAAEAAAD/////AAANAAAAAAD//wAAAAANAAEAAAAAAP//AAAOAAAAAAAAAAAAAAAOAAEAAAA=")
+tile_set = ExtResource("1_yuctl")
