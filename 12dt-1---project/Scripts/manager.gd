@@ -102,28 +102,15 @@ var enemy_info = {
 # Function to level up player
 func _level_up():
 	# Level of player
-	var level: int = 1
+	var lvl_up: int = 1
 	# Amount of health incresed
 	var hp_increase: int = 5
 	# Amount of attack increase
-	var atk_increase: int = 1
-	# Amount of healing items increased
-	var heal_increase: int = 1
+	var atk_increase: int = 2
+	# Amount healing items heal increase
+	var heal_increase: int = 2
 	# Conditional to check which level player is on
-	if level == 1:
-		# Increase max health
-		Manager.max_hp += hp_increase
-		# Increase attack
-		Manager.min_atk += atk_increase
-		Manager.max_atk += atk_increase
-		# Increase health
-		Manager.hp += hp_increase
-		# Increase amount of healing items
-		Manager.heal_int += heal_increase
-	# All other level ups
-	if level > 1:
-		# Increase amount attack is increased by
-		atk_increase += 1
+	if lvl_up == 1:
 		# Increase max health
 		Manager.max_hp += hp_increase
 		# Increase attack
