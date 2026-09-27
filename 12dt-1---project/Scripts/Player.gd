@@ -90,3 +90,8 @@ func _on_door_entered(body: Node2D) -> void:
 func _on_final_boss_entered(body: Node2D) -> void:
 	if body.is_in_group("Player"):
 		get_tree().change_scene_to_file("res://Levels/Other Levels/Battle.tscn")
+
+
+func _on_final_ex_entered(body: Node2D) -> void:
+	if body.is_in_group("Player"):
+		get_tree().change_scene_to_file("res://Levels/Other Levels/Win_Screen.tscn")

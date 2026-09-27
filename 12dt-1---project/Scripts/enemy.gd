@@ -8,8 +8,3 @@ func _ready():
 		queue_free()
 		# End script
 		return
-
-
-func _on_exit_entered(body: Node2D) -> void:
-	if body.is_in_group("Player"):
-		get_tree().change_scene_to_file("res://Levels/Other Levels/Win_Screen.tscn")
