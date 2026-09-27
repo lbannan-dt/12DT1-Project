@@ -125,7 +125,7 @@ position = Vector2(-125, 214)
 [node name="T-Rex" parent="." unique_id=1724803672 instance=ExtResource("6_gr583")]
 position = Vector2(-117, 312)
 
-[node name="Area2D" parent="." unique_id=1799630681 instance=ExtResource("7_ad1x8")]
+[node name="Final Boss" parent="." unique_id=1799630681 instance=ExtResource("7_ad1x8")]
 position = Vector2(-140, 387)
 
 [connection signal="pressed" from="VBoxContainer/HBoxContainer/Attack" to="." method="_on_attack_pressed"]

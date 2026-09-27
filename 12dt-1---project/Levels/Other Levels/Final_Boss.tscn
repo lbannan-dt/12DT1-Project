@@ -1,10 +1,12 @@
 [gd_scene format=3 uid="uid://cch45ynqkkvu3"]
 
 [ext_resource type="TileSet" uid="uid://0dei6iym05ty" path="res://Assets/sprite_map.tres" id="1_8nb6i"]
+[ext_resource type="Script" uid="uid://dyaldujgxvh8f" path="res://Scripts/enemy.gd" id="1_8tmmv"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_8tmmv"]
 
 [node name="Area2D" type="Area2D" unique_id=1799630681]
+script = ExtResource("1_8tmmv")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1503345571]
 shape = SubResource("RectangleShape2D_8tmmv")
