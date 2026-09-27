@@ -6,6 +6,7 @@ const SPEED: int = 175
 # Vector2 variable to handle player movement
 var direction: Vector2 = Vector2(0.0, 0.0)
 
+
 # Execute every delta while game is running
 func _process(delta: float) -> void:
 	# Handle input to get player direction
@@ -22,6 +23,7 @@ func _process(delta: float) -> void:
 		Manager.just_won = false
 	# Player movement
 	move_and_slide()
+
 
 # Change level to cave when enter cave mouth
 func _on_area_2d_2_body_entered(body: Node2D) -> void:
@@ -53,13 +55,7 @@ func _on_pteranodon_body_entered(body: Node2D) -> void:
 func _on_area_time_machine_body_entered(body: Node2D) -> void:
 	if body.is_in_group("Player"):
 		get_tree().change_scene_to_file("res://Levels/Main Levels/Cretaceous.tscn")
-# Remove Magic Numbers!
-		Manager.level_number += 1
-		Manager.max_hp += 5
-		Manager.min_atk += 1
-		Manager.max_atk += 1
-		Manager.hp += 5
-		Manager.heal_int += 2
+		Manager._level_up()
 
 
 # Change level to Cretaceous Cave once entered
@@ -73,13 +69,7 @@ func _on_cretaceous_cave_entered(body: Node2D) -> void:
 func _on_archaean_entered(body: Node2D) -> void:
 	if body.is_in_group("Player"):
 		get_tree().change_scene_to_file("res://Levels/Main Levels/Archaean.tscn")
-# Remove Magic Numbers!
-		Manager.level_number += 1
-		Manager.max_hp += 5
-		Manager.min_atk += 2
-		Manager.max_atk += 2
-		Manager.hp += 5
-		Manager.heal_int += 2
+		Manager._level_up()
 
 
 # Change level to battle when entered T-Rex

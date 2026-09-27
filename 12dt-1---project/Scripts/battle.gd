@@ -50,6 +50,7 @@ var player_dead: bool = false
 # Where the enemy is positioned in the battle interface
 var centre_pos: Vector2 = Vector2(170, 112)
 
+
 # Move sprites to the correct position depending on enemy order
 func _move_sprites():
 	# For Alien Robo DX
@@ -93,6 +94,7 @@ func _move_sprites():
 		# Change background colour
 		background.color = Color(0.2, 0, 0, 0.85)
 
+
 # Start battle
 func _ready() -> void:
 	# Check order of enemies
@@ -114,6 +116,7 @@ func _ready() -> void:
 	# Set player healthbar to fill health bar
 	player_bar.value = player_hp
 
+
 # Check if player dies
 func _check_death():
 	# They will be dead if HP <= 0
@@ -132,6 +135,7 @@ func _check_death():
 		# End script
 		return
 
+
 # Check enemy death
 func _check_enemy_death():
 	# Enemy will be dead if its HP <= 0
@@ -147,6 +151,7 @@ func _check_enemy_death():
 		Manager.enemy_order += 1
 		# End script
 		return
+
 
 # Enemy turn
 func _enemy_attack():
@@ -180,6 +185,7 @@ func _enemy_attack():
 		attack_button.disabled = false
 		item_button.disabled = false
 
+
 # Player attack
 func _attack():
 	# Disable player options
@@ -205,6 +211,7 @@ func _attack():
 	else:
 		# Start enemy turn
 		_enemy_attack()
+
 
 # Player use healing item
 func _use_item():
@@ -254,9 +261,11 @@ func _use_item():
 	# Enemy turn
 	_enemy_attack()
 
+
 # Perform attack function when press Attack button
 func _on_attack_pressed() -> void:
 	_attack()
+
 
 # End level and move player to their current levels for continuity
 func _win_die():
@@ -272,6 +281,8 @@ func _win_die():
 	# Move player to Cretaceous Cave level
 	if Manager.level_number == Manager.cretaceous_cave:
 		get_tree().change_scene_to_file("res://Levels/Main Levels/Cretaceous_Cave.tscn")
+	if Manager.level_number == Manager.archaean:
+		get_tree().change_scene_to_file("res://Levels/Main Levels/Final_Place.tscn")
 
 
 # Use item when Items button pressed

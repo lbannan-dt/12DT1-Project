@@ -8,8 +8,6 @@ var hp: int = 10
 var min_atk = 2
 # Maximum base attack range value
 var max_atk = 3
-# Potential defense variable
-#var def
 # Enemy order to change enemy stats
 var enemy_order: int = 1
 var level_number: int = 1
@@ -100,40 +98,111 @@ var enemy_info = {
 	}
 }
 
-# Need to make some of this into functions
+
+# Function to level up player
+func _level_up():
+	# Level of player
+	var level: int = 1
+	# Amount of health incresed
+	var hp_increase: int = 5
+	# Amount of attack increase
+	var atk_increase: int = 1
+	# Amount of healing items increased
+	var heal_increase: int = 1
+	# Conditional to check which level player is on
+	if level == 1:
+		# Increase max health
+		Manager.max_hp += hp_increase
+		# Increase attack
+		Manager.min_atk += atk_increase
+		Manager.max_atk += atk_increase
+		# Increase health
+		Manager.hp += hp_increase
+		# Increase amount of healing items
+		Manager.heal_int += heal_increase
+	# All other level ups
+	if level > 1:
+		# Increase amount attack is increased by
+		atk_increase += 1
+		# Increase max health
+		Manager.max_hp += hp_increase
+		# Increase attack
+		Manager.min_atk += atk_increase
+		Manager.max_atk += atk_increase
+		# Increase health
+		Manager.hp += hp_increase
+		# Increase amount of healing items
+		Manager.heal_int += heal_increase
+
+
+# Check order of enemies in order to have correct battles
 func _check_order():
-	if enemy_order == 1:
+	# For the enemy in the first level (Alien Robo)
+	if enemy_order == level:
+		# Get enemy stats from enemy_info dictionary
 		enemy_stats = enemy_info[enemy_1]
+		# Get enemy max health from enemy_stats dictionary
 		enemy_max_health = enemy_stats[hp_string]
+		# Get enemy attack range from enemy_stats dictionary
 		enemy_atk = enemy_stats[atk_string]
+		# Get enemy position from enemy_stats dictionary
 		enemy_pos = enemy_stats[pos_string]
+		# Assign enemy label to enemy 1
 		enemy_label = enemy_1
+		# Assign win location to Vector2 location
 		win_location = Vector2(-100, -200)
-	if enemy_order == 2:
+	# For the enemy in the cave (Alien Robo DX)
+	if enemy_order == cave:
+		# Get enemy stats from enemy_info dictionary
 		enemy_stats = enemy_info[enemy_2]
+		# Get enemy max health from enemy_stats dictionary
 		enemy_max_health = enemy_stats[hp_string]
+		# Get enemy attack range from enemy_stats dictionary
 		enemy_atk = enemy_stats[atk_string]
+		# Get enemy position from enemy_stats dictionary
 		enemy_pos = enemy_stats[pos_string]
+		# Assign enemy label to enemy 2
 		enemy_label = enemy_2
 		win_location = Vector2(150, 50)
-	if enemy_order == 3:
+	# For the enemy in the Cretaceous overworld (Pteranodon)
+	if enemy_order == cretaceous:
+		# Get enemy stats from enemy_info dictionary
 		enemy_stats = enemy_info[enemy_3]
+		# Get enemy max health from enemy_stats dictionary
 		enemy_max_health = enemy_stats[hp_string]
+		# Get enemy attack range from enemy_stats dictionary
 		enemy_atk = enemy_stats[atk_string]
+		# Get enemy position from enemy_stats dictionary
 		enemy_pos = enemy_stats[pos_string]
+		# Assign enemy label to enemy 3
 		enemy_label = enemy_3
+		# Assign win location to Vector2 location
 		win_location = Vector2(500, 500)
-	if enemy_order == 4:
+	# For the enemy in the Cretaceous cave (T-Rex)
+	if enemy_order == cretaceous_cave:
+		# Get enemy stats from enemy_info dictionary
 		enemy_stats = enemy_info[enemy_4]
+		# Get enemy max health from enemy_stats dictionary
 		enemy_max_health = enemy_stats[hp_string]
+		# Get enemy attack range from enemy_stats dictionary
 		enemy_atk = enemy_stats[atk_string]
+		# Get enemy position from enemy_stats dictionary
 		enemy_pos = enemy_stats[pos_string]
+		# Assign enemy label to enemy 4
 		enemy_label = enemy_4
+		# Assign win location to Vector2 location
 		win_location = Vector2(200, 100)
-	if enemy_order == 5:
+	# For the enemy in the Archaean (Final Boss/Your Shadow)
+	if enemy_order == archaean:
+		# Get enemy stats from enemy_info dictionary
 		enemy_stats = enemy_info[enemy_5]
+		# Get enemy max health from enemy_stats dictionary
 		enemy_max_health = enemy_stats[hp_string]
+		# Get enemy attack range from enemy_stats dictionary
 		enemy_atk = enemy_stats[atk_string]
+		# Get enemy position from enemy_stats dictionary
 		enemy_pos = enemy_stats[pos_string]
+		# Assign enemy label to enemy 5
 		enemy_label = enemy_5
+		# Assign win location to Vector2 location
 		win_location = Vector2(0, 0)
