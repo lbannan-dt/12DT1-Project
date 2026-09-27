@@ -16,17 +16,17 @@ const WAIT = 1.5
 @onready var attack_button: Button = $VBoxContainer/HBoxContainer/Attack
 # Assign variable item_button to 'Items' Button node
 @onready var item_button: Button = $VBoxContainer/HBoxContainer/Items
-#Assign variable enemy_1_sprite to Alien Robo sprite
+# Assign variable enemy_1_sprite to Alien Robo sprite
 @onready var enemy_1_sprite: Area2D = $"Alien Robo"
-#Assign variable enemy_2_sprite to Alien Robo DX sprite
+# Assign variable enemy_2_sprite to Alien Robo DX sprite
 @onready var enemy_2_sprite: Area2D = $"Alien Robo DX"
-#Assign variable enemy_3_sprite to Pteranodon sprite
+# Assign variable enemy_3_sprite to Pteranodon sprite
 @onready var enemy_3_sprite: Area2D = $"Pteranodon"
-#Assign variable enemy_4_sprite to T-Rex sprite
+# Assign variable enemy_4_sprite to T-Rex sprite
 @onready var enemy_4_sprite: Area2D = $"T-Rex"
-#Assign variable enemy_5_sprite to Final Boss sprite
+# Assign variable enemy_5_sprite to Final Boss sprite
 @onready var enemy_5_sprite: Area2D = $"Final Boss"
-#Assign variable background to background ColorRect
+# Assign variable background to background ColorRect
 @onready var background: ColorRect = $ColorRect
 
 # Enemy HP

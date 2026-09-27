@@ -193,3 +193,10 @@ func _check_order():
 		enemy_label = enemy_5
 		# Assign win location to Vector2 location
 		win_location = Vector2(0, 0)
+
+
+# A for loop
+func _for_loop():
+	# Loop through i
+	for i in range(1,2):
+		var loop_var: int = i
